@@ -7,5 +7,6 @@ Requirements:
 3. Pytorch does not provide the CTC loss function. However, deepspeech has a pytorch wrapper for the CTC loss function. Follow the instructions at https://github.com/SeanNaren/deepspeech.pytorch to install the Warp-CTC module. After installation, copy libwarpctc.so to your python lib anaconda3/lib/python3.5/site-packages/
 4. If you want to use the CTC beam decoder as in the paper http://proceedings.mlr.press/v32/graves14.pdf, you need to have the decoder libary installed. Follow the instructions at https://github.com/ryanleary/pytorch-ctc
 5. The TIMIT data and weights are avalible in the release TIMIT-DATA.
+
 Run the example:
 I have provided the processed features in train_ctc and cv_ctc. To train and prune the CTC model, run the script run.py. You can specify the sparsity(defined by the variable p), LSTM layers, number of directions, etc at the beginning of this script. I assume that your features are 40-dimension. If not, you can change it in __main__. Note, the num_classes should be set to 61, not 62, because the network will automatically add 1 for the blank label. The details of the model is in set_model_ctc.py. The models will be saved in weights_ctc, in which I have generated some models already. 
